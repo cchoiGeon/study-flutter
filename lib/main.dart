@@ -23,6 +23,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var _index = 0; // 페이지 인덱스 0,1,2 기본값 : 0
+  var _pages = [
+    Page1(),
+    Page2(),
+    Page3(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,12 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
         centerTitle: true, // 제목을 가운데로
       ),
-      body: Center( // body는 화면의 주요 콘텐츠가 위치하는 부분 , Center는 중앙으로 정렬시켜주는 위젯
-        child: Text(
-          '$_index 페이지',
-          style: TextStyle(fontSize: 40),
-        ),
-      ),
+      body: _pages[_index],
       bottomNavigationBar: BottomNavigationBar( // 바텀 네비게이션바
         onTap: (index) { // 해당 목록을 눌렀을 때 동작 처리, 현재 선택된 탭의 인덱스가 전달
           setState(() {
@@ -67,6 +68,42 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.account_circle)
           ),
         ],
+      ),
+    );
+  }
+}
+
+class Page1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        '홈페이지',
+        style: TextStyle(fontSize: 40),
+      ),
+    );
+  }
+}
+
+class Page2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        '이용서비스',
+        style: TextStyle(fontSize: 40),
+      ),
+    );
+  }
+}
+
+class Page3 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        '내 정보',
+        style: TextStyle(fontSize: 40),
       ),
     );
   }
