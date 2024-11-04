@@ -27,7 +27,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar( // appBar는 상단에 표시되는 앱바를 말함
+        backgroundColor: Colors.white, // 배경색
         title: Text('복잡합 UI'), // title은 상단 앱바에 표시됨
+        actions: [ // 앱바 오른쪽에 메뉴 추가
+          IconButton(
+            icon: Icon(
+              Icons.add,
+              color: Colors.black,
+            ),
+            onPressed: () {},
+          )
+        ],
+        centerTitle: true, // 제목을 가운데로
       ),
       body: Center( // body는 화면의 주요 콘텐츠가 위치하는 부분 , Center는 중앙으로 정렬시켜주는 위젯
         child: Text(
